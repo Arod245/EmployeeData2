@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeData2.Models
 {
-    public class StoreManager:Employees
+    public class SalaryEmployee
     {
-        
-
     }
 }

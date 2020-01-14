@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace EmployeeData2.Models
 {
-    public class StoreManager:Employees
+    public class HourlyEmployee
     {
-        
+        public int Hours { get; set; }
 
     }
 }
