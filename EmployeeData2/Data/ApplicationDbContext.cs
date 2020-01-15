@@ -13,6 +13,6 @@ namespace EmployeeData2.Data
             : base(options)
         {
         }
-        DbSet<Employees> EmployeeData { get; set; }
+       public DbSet<Employees> EmployeeData { get; set; }
     }
 }

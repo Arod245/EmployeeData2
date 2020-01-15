@@ -35,7 +35,9 @@ namespace EmployeeData2
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
+            services.AddMvc(option => option.EnableEndpointRouting = false);
+             
+       
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -45,7 +47,7 @@ namespace EmployeeData2
   .AddDefaultTokenProviders();
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,7 +74,7 @@ namespace EmployeeData2
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Landing}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

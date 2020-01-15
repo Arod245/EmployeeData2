@@ -20,11 +20,17 @@ namespace EmployeeData2.Data
                 // The admin user can do anything
 
                 var adminID = await CreateUser(serviceProvider, testUserPw, "admin@aserver.net");
+                var storeId = await CreateUser(serviceProvider, testUserPw, "storeManager@aserver.net");
+
                 await CreateRole(serviceProvider, "admin");
                 await AddUserToRole(serviceProvider, adminID, "admin");
                 await CreateRole(serviceProvider, "employee");
                 await CreateRole(serviceProvider, "assistantManager");
+
                 await CreateRole(serviceProvider, "storeManager");
+                await AddUserToRole(serviceProvider, storeId, "storeManager");
+
+
 
                 SeedDB(context, adminID);
             }
@@ -70,6 +76,7 @@ namespace EmployeeData2.Data
             {
                 user = new IdentityUser
                 {
+                   
                     UserName = UserName,
                     EmailConfirmed = true
                 };
